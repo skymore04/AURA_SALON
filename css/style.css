@@ -339,6 +339,111 @@ h1, h2, h3, h4 {
     color: var(--aura-void);
 }
 
+/* WhatsApp Elements */
+.wa-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.wa-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    animation: wa-pulse 2s infinite;
+    text-decoration: none;
+}
+
+.wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    background: #20b858;
+}
+
+.wa-float svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+@keyframes wa-pulse {
+    0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7); }
+    100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+}
+
+.wa-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.wa-badge svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.service-card:hover .wa-badge {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@media (max-width: 768px) {
+    .wa-float {
+        width: 52px;
+        height: 52px;
+        bottom: 16px;
+        right: 16px;
+    }
+    .wa-float svg {
+        width: 28px;
+        height: 28px;
+    }
+    .wa-badge {
+        width: 36px;
+        height: 36px;
+        top: 12px;
+        right: 12px;
+    }
+    .wa-badge svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
 /* Utilities */
 .reveal-text { clip-path: inset(0 100% 0 0); }
 .reveal-image { clip-path: inset(100% 0 0 0); }
