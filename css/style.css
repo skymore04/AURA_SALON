@@ -1,0 +1,344 @@
+:root {
+    /* High-Energy Luxury Palette */
+    --aura-void: #050505;
+    --aura-dark: #121212;
+    --aura-light: #F9F9F9;
+    --aura-accent: #CFA461; /* Vibrant gold/brass */
+    --aura-accent-dim: rgba(207, 164, 97, 0.2);
+    
+    /* Dynamic Spacing */
+    --padding-x: 6vw;
+    --padding-y: 12vh;
+    
+    /* Modern Typography */
+    --font-display: 'Cinzel', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: initial;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--aura-void);
+    color: var(--aura-light);
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.title-mega {
+    font-size: clamp(3rem, 12vw, 10rem);
+    letter-spacing: -0.01em;
+}
+
+.title-section {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: 2rem;
+}
+
+.text-lead {
+    font-family: var(--font-body);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 300;
+    line-height: 1.4;
+    color: #eee;
+}
+
+.label-caps {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--aura-accent);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    padding: var(--padding-y) var(--padding-x);
+}
+
+.full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Nav */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem var(--padding-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(5,5,5,0.9), rgba(5,5,5,0.4) 60%, transparent);
+}
+
+.nav-brand {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: var(--aura-light);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .nav-bar { padding: 1rem var(--padding-x); }
+    .nav-actions .label-caps { display: none; } /* Hide 'Thane // W' on mobile to save space */
+    .btn-book { padding: 0.5rem 1.2rem; font-size: 0.7rem; }
+}
+
+.btn-book {
+    padding: 0.75rem 2rem;
+    background-color: var(--aura-accent);
+    color: var(--aura-void);
+    text-decoration: none;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: var(--aura-light);
+    transform: scale(1.05);
+}
+
+/* Hero Cinematic */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-video-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--aura-void) 0%, rgba(5,5,5,0.3) 100%);
+    z-index: 1;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* FULL COLOR - NO GRAYSCALE */
+    transform: scale(1.05); /* Slight scale to allow parallax without edges showing */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    padding: 0 var(--padding-x);
+}
+
+/* Media-Rich Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    margin-top: 4rem;
+}
+
+.service-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 60vh;
+    min-height: 400px;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.card-wide { grid-column: span 8; }
+.card-narrow { grid-column: span 4; }
+
+@media (max-width: 1024px) {
+    .card-wide, .card-narrow { grid-column: span 12; height: 50vh; }
+    .hero-content { padding-top: 10vh; }
+    .voice-card { padding: 2rem; }
+    .footer-main .btn-book { padding: 1rem 2rem; width: 100%; display: block; text-align: center; }
+}
+
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.service-card:hover .service-img {
+    transform: scale(1.08);
+}
+
+.service-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem;
+    transition: background 0.4s ease;
+}
+
+.service-card:hover .service-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+.service-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.5rem;
+    transform: translateY(20px);
+    opacity: 0.8;
+    transition: all 0.4s ease;
+}
+
+.service-desc {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    color: #eee;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+    transition-delay: 0.1s;
+}
+
+.service-card:hover .service-title {
+    transform: translateY(0);
+    opacity: 1;
+    color: var(--aura-accent);
+}
+
+.service-card:hover .service-desc {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Testimonials / Voices (Dynamic Carousel) */
+.voices-section {
+    background-color: var(--aura-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.voice-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 4rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.voice-text {
+    font-family: var(--font-body);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    line-height: 1.4;
+    color: var(--aura-light);
+    font-style: italic;
+    text-transform: none;
+    margin-bottom: 2rem;
+}
+
+/* Architects */
+.architects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.architect-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 70vh;
+}
+
+.architect-item img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+
+.architect-info {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+/* Footer */
+.footer-main {
+    background-color: var(--aura-accent);
+    color: var(--aura-void);
+    text-align: center;
+    padding: 15vh var(--padding-x);
+}
+
+.footer-main .title-mega {
+    color: var(--aura-void);
+}
+
+.footer-main .btn-book {
+    background-color: var(--aura-void);
+    color: var(--aura-light);
+    font-size: 1rem;
+    padding: 1.2rem 4rem;
+    margin-top: 3rem;
+}
+
+.footer-main .btn-book:hover {
+    background-color: #fff;
+    color: var(--aura-void);
+}
+
+/* Utilities */
+.reveal-text { clip-path: inset(0 100% 0 0); }
+.reveal-image { clip-path: inset(100% 0 0 0); }
