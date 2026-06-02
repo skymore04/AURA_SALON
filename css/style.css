@@ -222,7 +222,14 @@ h1, h2, h3, h4 {
 .service-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.97) 0%,
+        rgba(0,0,0,0.82) 30%,
+        rgba(0,0,0,0.55) 60%,
+        rgba(0,0,0,0.35) 85%,
+        rgba(0,0,0,0.2) 100%
+    );
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -231,7 +238,18 @@ h1, h2, h3, h4 {
 }
 
 .service-card:hover .service-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 100%);
+    background: linear-gradient(
+        to top,
+        #000 0%,
+        rgba(0,0,0,0.92) 25%,
+        rgba(0,0,0,0.7) 50%,
+        rgba(0,0,0,0.45) 75%,
+        rgba(0,0,0,0.25) 100%
+    );
+}
+
+.service-card .label-caps {
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.5);
 }
 
 .service-title {
@@ -240,16 +258,18 @@ h1, h2, h3, h4 {
     transform: translateY(20px);
     opacity: 0.8;
     transition: all 0.4s ease;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.4);
 }
 
 .service-desc {
     font-family: var(--font-body);
     font-size: 1.25rem;
-    color: #eee;
+    color: #fff;
     transform: translateY(20px);
     opacity: 0;
     transition: all 0.4s ease;
     transition-delay: 0.1s;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
 }
 
 .service-card:hover .service-title {
